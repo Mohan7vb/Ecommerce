@@ -1,0 +1,26 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>E-commerce Website</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to our E-commerce Website</h1>
+    </header>
+
+    <div class="container">
+        <h2>Products:</h2>
+        {% for product in products %}
+            <div class="product">
+                <a href="{{ url_for('product', product_id=product['id']) }}">
+                    {{ product['name'] }} - ${{ product['price'] }}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
